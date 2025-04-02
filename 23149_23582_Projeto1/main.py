@@ -34,18 +34,19 @@ def primos():
         print("O valor inicial precisa ser maior que 2!")
         numInicial = int(input("Informe o valor inicial do intervalo: "))
     numFim = int(input("Informe o valor final do intervalo : ")) 
-    soma = som.Somatoria
-    primo = pri.Primo
+    soma = som.Somatoria()
+    primo = pri.Primo()
 
+    print(f"Os primos entre {numInicial} e {numFim} são: ")
 
     for i in range(numInicial, numFim + 1):  #Enquanto esta dentro do perido
         if primo.ehPrimo(numInicial):
+            print(numInicial, end=", ")
             soma.somar(numInicial)  #se o número não tiver nenhum divisor somanmos ele aos primos
 
-        numInicial += 1
+        numInicial += 1        
 
-    print(f"Os primos entre {numInicial} e {numFim} são: ")
-    print(f"A soma dos primos é: {soma.valor}")
+    print(f"\nA soma dos primos é: {soma.valor}")
     print(f"A média aritmética dos primos é: {soma.media_aritmetica()}")
 
 def raizQuadrada():
