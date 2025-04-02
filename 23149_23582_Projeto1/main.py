@@ -1,4 +1,4 @@
-import som, prod, os
+import som, prod, os, pri
 
 def seletorDeOpcoes():
     opcao = -1
@@ -29,19 +29,24 @@ def seletorDeOpcoes():
 
 def primos():
     print("1. Números primos num intervalo")
-    numInicio = int(input("Informe o valor inicial do intervalo(valor > 2): "))
-    while numInicio <= 2:
+    numInicial = int(input("Informe o valor inicial do intervalo(valor > 2): "))
+    while numInicial <= 2:
         print("O valor inicial precisa ser maior que 2!")
-        numInicio = int(input("Informe o valor inicial do intervalo: "))
+        numInicial = int(input("Informe o valor inicial do intervalo: "))
     numFim = int(input("Informe o valor final do intervalo : ")) 
     soma = som.Somatoria
-    
-    for i in range(numInicio, numFim+1, 1):
-        pass
+    primo = pri.Primo
 
-    print(f"Os primos entre {numInicio} e {numFim} são: {primo}")
-    print(f"A soma dos primos é: {somaPrimos}")
-    print(f"A média aritmética dos primos é: {media}")
+
+    for i in range(numInicial, numFim + 1):  #Enquanto esta dentro do perido
+        if primo.ehPrimo(numInicial):
+            soma.somar(numInicial)  #se o número não tiver nenhum divisor somanmos ele aos primos
+
+        numInicial += 1
+
+    print(f"Os primos entre {numInicial} e {numFim} são: ")
+    print(f"A soma dos primos é: {soma.valor}")
+    print(f"A média aritmética dos primos é: {soma.media_aritmetica()}")
 
 def raizQuadrada():
     pass
