@@ -28,7 +28,20 @@ def seletorDeOpcoes():
 
 
 def primos():
-    pass
+    print("1. Números primos num intervalo")
+    numInicio = int(input("Informe o valor inicial do intervalo(valor > 2): "))
+    while numInicio <= 2:
+        print("O valor inicial precisa ser maior que 2!")
+        numInicio = int(input("Informe o valor inicial do intervalo: "))
+    numFim = int(input("Informe o valor final do intervalo : ")) 
+    soma = som.Somatoria
+    
+    for i in range(numInicio, numFim+1, 1):
+        pass
+
+    print(f"Os primos entre {numInicio} e {numFim} são: {primo}")
+    print(f"A soma dos primos é: {somaPrimos}")
+    print(f"A média aritmética dos primos é: {media}")
 
 def raizQuadrada():
     pass
