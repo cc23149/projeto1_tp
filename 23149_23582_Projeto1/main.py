@@ -14,30 +14,34 @@ def seletorDeOpcoes():
         opcao = int(input("\nDigite a opção desejada: "))
         match opcao:
             case 1:
+                os.system('cls') or None
                 primos()
             case 2:
+                os.system('cls') or None
                 fazRaizQuadrada()
             case 3:
+                os.system('cls') or None
                 numerosDeFibonacci()
             case 4:
+                os.system('cls') or None
                 processamentoDeDados()
 
         if opcao != 0:
-            input("Tecle [Enter] para retornar ao seletor de opções: ")
+            input("\nTecle [Enter] para retornar ao seletor de opções: ")
 
 def primos():
-    print("\n1. Números primos numero intervalo\n")
+    print("1. Números primos numero intervalo\n")
 
     valor_inicial = -1
     while valor_inicial <= 2:
         valor_inicial = int(input("Informe o valor inicial do intervalo: "))
         if valor_inicial <= 2:
-            print("O valor inicial precisa ser maior que 2!")
+            print("\nO valor inicial precisa ser maior que 2!")
 
     valor_final = int(input("Informe o valor final do intervalo : ")) 
     soma = som.Somatoria()
 
-    print(f"Os primos nesse intealo são: ")
+    print(f"\nOs primos nesse intealo são: ")
     for numero in range(valor_inicial, valor_final + 1, 1):
 
         qts_divisores = 0
@@ -49,13 +53,13 @@ def primos():
             possivel_divisor += 1
 
         if qts_divisores == 0:
-            if numero > valor_final:
-                print( numero,end=", ")
+            if numero < valor_final:
+                print(numero,end=", ")
                 soma.somar(numero)
             else:
                 print(numero)
                 soma.somar(numero)
-        
+    
         numero += 1
 
     print(f"\nA soma desses primos é: {soma.valor}")
