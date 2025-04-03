@@ -1,4 +1,4 @@
-import som, prod, os
+import som, prod, os, raizQuad
 
 def seletorDeOpcoes():
     opcao = -1
@@ -30,7 +30,7 @@ def seletorDeOpcoes():
             input("\nTecle [Enter] para retornar ao seletor de opções: ")
 
 def primos():
-    print("1. Números primos numero intervalo\n")
+    print("1. Números primos num intervalo\n")
 
     valor_inicial = -1
     while valor_inicial <= 2:
@@ -70,7 +70,22 @@ def primos():
 
 
 def fazRaizQuadrada():
-    pass
+    print("2. Raiz Quadrada de 1 a um valor\n")
+
+    a = -1
+    while a <= 1:
+        a = float(input("Informe o valor inicial do intervalo: "))
+        if a <= 1:
+            print("\nO valor inicial precisa ser maior que 2!")
+
+    contador = 1
+    raiz = raizQuad.RaizQuadrada()
+    while contador < a:
+        print(contador,end=" ")
+        print(raiz.raiz_quadrada(contador))
+        
+        contador += 0.1
+    
 
 def numerosDeFibonacci():
     pass
