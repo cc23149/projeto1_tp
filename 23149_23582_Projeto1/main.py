@@ -81,8 +81,7 @@ def fazRaizQuadrada():
     contador = 1
     raiz = raizQuad.RaizQuadrada()
     while contador < a:
-        print(contador,end=" ")
-        print(raiz.raiz_quadrada(contador))
+        print(contador + ":" + raiz.raiz_quadrada(contador))
         
         contador += 0.1
     
