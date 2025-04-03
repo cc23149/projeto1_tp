@@ -1,7 +1,12 @@
+from math import sqrt
+
 class Somatoria:
     def __init__(self):
-        self._soma = 0.0                        # totalizador de valores somados
-        self._quantos_valores_somados = 0       # contador de valores somados
+        self._soma = 0.0
+        self._soma_valor_com_peso = 0.0
+        self._soma_pesos = 0.0                  
+        self._quantos_valores_somados = 0   
+        self._quantos_valores_com_pesos_somados = 0    
         self._maior = float('-inf')
         self._menor = float('inf')
         
@@ -13,9 +18,21 @@ class Somatoria:
     def quantos(self):
         return self._quantos_valores_somados
     
+    @property
+    def raiz_media_quadratica(self):
+        if self._quantos_valores_somados == 0:
+            raise Exception("Não é possível calcular a média de 0 valores.")
+        return sqrt(self._soma / self._quantos_valores_somados)
+    
+    @property
+    def media_ponderada(self):
+        if self._soma_pesos == 0:
+            raise Exception("Não se pode calcular a média ponderada. Soma de pesos = 0.")
+        return self._soma_valor_com_peso / self._soma_pesos
+
     def somar(self, valor_a_somar):
-        self._soma += valor_a_somar         # acumula o valor passado pela aplicação
-        self._quantos_valores_somados += 1  # conta mais um valor somado
+        self._soma += valor_a_somar        
+        self._quantos_valores_somados += 1 
         
     def media_aritmetica(self):
         if self._quantos_valores_somados == 0:

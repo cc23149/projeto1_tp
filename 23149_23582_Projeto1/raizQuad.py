@@ -1,9 +1,9 @@
-import math
+import math 
 
 class RaizQuadrada:
-    def __init__(self):
-        self._numeroReal = 0.0
-
+    def __init__(self,numeroReal):
+        self._numeroReal = numeroReal
+        
     @property
     def valor(self):
         return self._numeroReal
@@ -13,7 +13,7 @@ class RaizQuadrada:
         g = y
 
         x = (g + y/ g) / 2
-        while math.abs((g / x) - 1) > 0.0001:
+        while abs((g / x) - 1) > 0.0001:
             g = x
         else:
             return x

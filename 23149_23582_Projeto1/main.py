@@ -1,4 +1,5 @@
-import som, prod, os, raizQuad
+import som, prod, os, raizQuad, numFibo
+from tkinter import filedialog
 
 def seletorDeOpcoes():
     opcao = -1
@@ -41,7 +42,7 @@ def primos():
     valor_final = int(input("Informe o valor final do intervalo : ")) 
     soma = som.Somatoria()
 
-    print(f"\nOs primos nesse intealo são: ")
+    print(f"\nOs primos nesse intervalo são: ")
     for numero in range(valor_inicial, valor_final + 1, 1):
 
         qts_divisores = 0
@@ -64,7 +65,7 @@ def primos():
 
     print(f"\nA soma desses primos é: {soma.valor}")
     try:
-        print(f"A média aritmética dos primos é: {soma.media_aritmetica():5.2f}")
+        print(f"A média aritmética dos primos é: {soma.media_aritmetica():.2f}")
     except Exception as erro:
         print(erro)
 
@@ -81,16 +82,44 @@ def fazRaizQuadrada():
     contador = 1
     raiz = raizQuad.RaizQuadrada()
     while contador < a:
-        print(contador + ":" + raiz.raiz_quadrada(contador))
+        print(f"{contador}: {raiz.raiz_quadrada(contador):.4f}")
         
-        contador += 0.1
+        contador = (contador * 10 + 1) / 10
     
 
 def numerosDeFibonacci():
     pass
 
 def processamentoDeDados():
-    pass
+    tiposDeArquivos = (
+        ('Arquivos de texto', '*.TXT'),
+        ('Arquivos JSON', '*.json'),
+        ('Qualquer arquivo', '*.*')
+    )
+    nomeDoArquivo = filedialog.askopenfilename(
+                                title = 'Selecione o arquivo',
+                                initialdir = r".\\",
+                                multiple = False,
+                                filetypes = tiposDeArquivos)
+    if nomeDoArquivo != "" :
+        arquivoDeEntrada = open(nomeDoArquivo, "r")
+        linha = int(arquivoDeEntrada.readline())  
+        soma = som.Somatoria()
+        produt = prod.Produtorio()
+        if linha != "":
+            valor = float(linha[0:3])
+            peso = float(linha[4:7])
+        
+        try:
+            print(f"A média aritimética é:{soma.media_aritmetica()}")
+            print(f"A raiz média quadratica é:{soma.raiz_media_quadratica()}")
+            print(f"A média ponderada de N é:{soma.media_ponderada()}")
+            
+        except Exception as erro:
+            print(erro)
+           
+
+
 
 
 
