@@ -72,7 +72,7 @@ def primos():
 
         numero += 1
 
-    print(f"\nA soma desses primos é: {soma.valor}")
+    print(f"\n\nA soma desses primos é: {soma.valor}")
     try:
         print(f"A média aritmética dos primos é: {soma.media_aritmetica():.2f}")
     except Exception as erro:
@@ -143,21 +143,35 @@ def processamentoDeDados():
                 produt.multiplicar(valor)
         
         try:
+            html = f"<html><head><style></<body><table><tr><th</th></tr>"
+            # while que concatena linhas de nota/peso na tabela
+            
+            html += "</table>"
+            # cada print deve ser um <p> embaixo da tabela
+            html += f"<p>{}</p>"
             print("\nResultados:\n")
             print(f"Média aritimética: {soma.media_aritmetica():.2f}")
             print(f"Raiz média quadratica: {soma.raiz_media_quadratica:.2f}")
             print(f"Média ponderada: {soma.media_ponderada:.2f}")
             print(f"Média geométrica: {produt.media_geometrica():.2f}")
+            print(f"\nMaior valor: {produt._maior}")
+            print(f"Menor valor: {produt._menor}")
+            html += "</body></html>"
+
+            arquivoDeSaida.write(html)
 
         except Exception as erro:
             print(erro)
         
-        print(f"\nMaior valor: {produt._maior}")
-        print(f"Menor valor: {produt._menor}")
-           
         
 
+        
 
+#   NOTA PESO 
+#   1.5   5
+#  
+#
+#
 
 
 
