@@ -15,5 +15,6 @@ class RaizQuadrada:
         x = (g + y/ g) / 2
         while abs((g / x) - 1) > 0.0001:
             g = x
+            x = (g + y/ g) / 2
         else:
             return x

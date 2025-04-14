@@ -42,6 +42,7 @@ def primos():
     valor_final = int(input("Informe o valor final do intervalo : ")) 
     soma = som.Somatoria()
 
+    contadorDeLinhas = 0
     print(f"\nOs primos nesse intervalo são: ")
     for numero in range(valor_inicial, valor_final + 1, 1):
 
@@ -53,14 +54,22 @@ def primos():
 
             possivel_divisor += 1
 
+        
         if qts_divisores == 0:
+            contadorDeLinhas += 1
+              
             if numero < valor_final:
-                print(numero,end=", ")
-                soma.somar(numero)
+                if contadorDeLinhas >= 10:
+                    print(numero,end=", \n")
+                    soma.somar(numero)
+                    contadorDeLinhas = 0
+                else:
+                    print(numero,end=", ")
+                    soma.somar(numero)
             else:
                 print(numero)
                 soma.somar(numero)
-    
+
         numero += 1
 
     print(f"\nA soma desses primos é: {soma.valor}")
@@ -71,26 +80,41 @@ def primos():
 
 
 def fazRaizQuadrada():
-    print("2. Raiz Quadrada de 1 a um valor\n")
+    print("2. Raiz Quadrada\n")
 
     a = -1
-    while a <= 1:
-        a = float(input("Informe o valor inicial do intervalo: "))
-        if a <= 1:
-            print("\nO valor inicial precisa ser maior que 2!")
+    while a < 2:
+        a = float(input("Informe o valor final do intervalo: "))
+        if a < 2:
+            print("\nO valor final precisa ser maior que 2!")
 
     contador = 1
-    raiz = raizQuad.RaizQuadrada()
-    while contador < a:
-        print(f"{contador}: {raiz.raiz_quadrada(contador):.4f}")
+    while contador <= a:
+        raiz = raizQuad.RaizQuadrada(contador)
+        print(f"{contador:.1f}: {raiz.raiz_quadrada():.4f}")
         
-        contador = (contador * 10 + 1) / 10
+        contador = contador + 0.1
     
 
 def numerosDeFibonacci():
-    pass
+    print("3 - Números de Fibonacci")
+
+    n = -1
+    while n < 2:
+        n = int(input("Informe o valor final do intervalo: "))
+        if n < 2:
+            print("\nO valor final precisa ser positivo!")
+
+    contador = 0
+    sequencia = numFibo.Fibonacci(n).fibo()
+    while contador < len(sequencia):
+        print(sequencia[contador], end=", ")
+        
+        contador += 1
+
 
 def processamentoDeDados():
+    print("4 - Processamento de Dados")
     tiposDeArquivos = (
         ('Arquivos de texto', '*.TXT'),
         ('Arquivos JSON', '*.json'),
@@ -103,20 +127,33 @@ def processamentoDeDados():
                                 filetypes = tiposDeArquivos)
     if nomeDoArquivo != "" :
         arquivoDeEntrada = open(nomeDoArquivo, "r")
-        linha = int(arquivoDeEntrada.readline())  
+
         soma = som.Somatoria()
         produt = prod.Produtorio()
-        if linha != "":
-            valor = float(linha[0:3])
-            peso = float(linha[4:7])
+        linha ="-"
+        while linha != "":
+            linha = arquivoDeEntrada.readline()
+
+            if linha != "":
+                valor = float(linha[0:3])
+                peso = float(linha[4:7])
+
+                soma.somar(valor)
+                soma.somar_com_peso(valor, peso)
+                produt.multiplicar(valor)
         
         try:
-            print(f"A média aritimética é:{soma.media_aritmetica()}")
-            print(f"A raiz média quadratica é:{soma.raiz_media_quadratica()}")
-            print(f"A média ponderada de N é:{soma.media_ponderada()}")
-            
+            print("\nResultados:\n")
+            print(f"Média aritimética: {soma.media_aritmetica():.2f}")
+            print(f"Raiz média quadratica: {soma.raiz_media_quadratica:.2f}")
+            print(f"Média ponderada: {soma.media_ponderada:.2f}")
+            print(f"Média geométrica: {produt.media_geometrica():.2f}")
+
         except Exception as erro:
             print(erro)
+        
+        print(f"\nMaior valor: {produt._maior}")
+        print(f"Menor valor: {produt._menor}")
            
 
 

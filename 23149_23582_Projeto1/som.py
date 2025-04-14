@@ -1,7 +1,8 @@
-from math import sqrt
+import raizQuad
+
 
 class Somatoria:
-    def __init__(self):
+    def __init__(self): 
         self._soma = 0.0
         self._soma_valor_com_peso = 0.0
         self._soma_pesos = 0.0                  
@@ -22,7 +23,9 @@ class Somatoria:
     def raiz_media_quadratica(self):
         if self._quantos_valores_somados == 0:
             raise Exception("Não é possível calcular a média de 0 valores.")
-        return sqrt(self._soma / self._quantos_valores_somados)
+            
+        raiz = raizQuad.RaizQuadrada((self._soma / self._quantos_valores_somados))
+        return raiz.raiz_quadrada()
     
     @property
     def media_ponderada(self):
@@ -33,9 +36,21 @@ class Somatoria:
     def somar(self, valor_a_somar):
         self._soma += valor_a_somar        
         self._quantos_valores_somados += 1 
-        
+
+    def somar_com_peso(self, valorX, peso):
+        self._soma_valor_com_peso += valorX * peso 
+        self._soma_pesos = self._soma_pesos + peso 
+        self._quantos_valores_com_pesos_somados += 1
+
+    
     def media_aritmetica(self):
         if self._quantos_valores_somados == 0:
             raise Exception("Não é possível calcular a média de 0 valores.")
         
         return self._soma / self._quantos_valores_somados
+    
+    def somar_inversos(self):
+        pass
+
+    def media_harmonica_dos_inversos(self):
+        pass
