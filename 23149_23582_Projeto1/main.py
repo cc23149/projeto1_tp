@@ -86,7 +86,7 @@ def fazRaizQuadrada():
     while a < 2:
         a = float(input("Informe o valor final do intervalo: "))
         if a < 2:
-            print("\nO valor final precisa ser maior que 2!")
+            print("\nO valor final não pode ser menor que 2!")
 
     contador = 1
     while contador <= a:
@@ -97,24 +97,24 @@ def fazRaizQuadrada():
     
 
 def numerosDeFibonacci():
-    print("3 - Números de Fibonacci")
+    print("3 - Números de Fibonacci\n")
 
     n = -1
-    while n < 2:
-        n = int(input("Informe o valor final do intervalo: "))
-        if n < 2:
-            print("\nO valor final precisa ser positivo!")
+    while n < 1:
+        n = int(input("Informe quantos números da sequência deseja saber: "))
+        if n < 1:
+            print("\nA quantidade não pode ser menor que 1!")
 
     contador = 0
     sequencia = numFibo.Fibonacci(n).fibo()
     while contador < len(sequencia):
-        print(sequencia[contador], end=", ")
+        print(sequencia[contador], end=" ")
         
         contador += 1
 
 
 def processamentoDeDados():
-    print("4 - Processamento de Dados")
+    print("4 - Processamento de Dados\n")
     tiposDeArquivos = (
         ('Arquivos de texto', '*.TXT'),
         ('Arquivos JSON', '*.json'),
@@ -155,6 +155,7 @@ def processamentoDeDados():
         print(f"\nMaior valor: {produt._maior}")
         print(f"Menor valor: {produt._menor}")
            
+        
 
 
 

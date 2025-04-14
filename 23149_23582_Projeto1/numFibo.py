@@ -6,7 +6,9 @@ class Fibonacci:
         sequencia = [0] * self._n
 
         sequencia[0] = 1
-        sequencia[1] = 1
+        # caso a sequência desejada pelo usuário tenha apenas um dígito
+        if self._n > 1:
+            sequencia[1] = 1
 
         for i in range(2,len(sequencia), 1):
             anterior1 = sequencia[i - 1]
