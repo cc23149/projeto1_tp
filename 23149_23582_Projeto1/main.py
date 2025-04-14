@@ -131,50 +131,47 @@ def processamentoDeDados():
         soma = som.Somatoria()
         produt = prod.Produtorio()
         linha ="-"
+
+        html = ""
+        html = f"<html>
+                <head>
+                    <style>
+                        table,tr,td{
+                            border: 1px solid black; 
+                            border-collapse: collapse;
+                        }
+                    </style>
+                </head>"
+        
+        html += "<table> <tr> <th>Valor</th> <th>Peso</th> </tr>"
+        # while que concatena linhas de nota/peso na tabela
         while linha != "":
             linha = arquivoDeEntrada.readline()
 
             if linha != "":
-                valor = float(linha[0:3])
+                valor = float(linha[0:3]) 
                 peso = float(linha[4:7])
+
+                html += f"<tr><td> {valor} </td> <td> {peso} </td></tr>"
 
                 soma.somar(valor)
                 soma.somar_com_peso(valor, peso)
                 produt.multiplicar(valor)
-        
-        try:
-            html = f"<html><head><style></<body><table><tr><th</th></tr>"
-            # while que concatena linhas de nota/peso na tabela
-            
-            html += "</table>"
+        html += "</table>"
+
             # cada print deve ser um <p> embaixo da tabela
-            html += f"<p>{}</p>"
-            print("\nResultados:\n")
-            print(f"Média aritimética: {soma.media_aritmetica():.2f}")
-            print(f"Raiz média quadratica: {soma.raiz_media_quadratica:.2f}")
-            print(f"Média ponderada: {soma.media_ponderada:.2f}")
-            print(f"Média geométrica: {produt.media_geometrica():.2f}")
-            print(f"\nMaior valor: {produt._maior}")
-            print(f"Menor valor: {produt._menor}")
-            html += "</body></html>"
+        html += f"<h3>Resultados:</h3>"
+        html += f"<p>Média aritimética: {soma.media_aritmetica():.2f} </p>"
+        html += f"<p>Raiz média quadratica: {soma.raiz_media_quadratica:.2f}</p>"
+        html += f"<p>Média ponderada: {soma.media_ponderada:.2f}</p>" 
+        html += f"<p>Média geométrica: {produt.media_geometrica():.2f}</p>"
+        html += f"<p>Maior valor: {produt._maior}</p>"
+        html += f"<p>Menor valor: {produt._menor}</p>"
+        html += "</body></html>"
 
-            arquivoDeSaida.write(html)
-
-        except Exception as erro:
-            print(erro)
-        
-        
-
-        
-
-#   NOTA PESO 
-#   1.5   5
-#  
-#
-#
-
-
-
+        arquivoDeSaida = open("saida.html", "w")
+        arquivoDeSaida.write(html)
+        arquivoDeEntrada.close()
 
 if __name__ == "__main__":
     seletorDeOpcoes()
