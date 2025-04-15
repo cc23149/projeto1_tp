@@ -133,17 +133,9 @@ def processamentoDeDados():
         linha ="-"
 
         html = ""
-        html = f"<html>
-                <head>
-                    <style>
-                        table,tr,td{
-                            border: 1px solid black; 
-                            border-collapse: collapse;
-                        }
-                    </style>
-                </head>"
-        
-        html += "<table> <tr> <th>Valor</th> <th>Peso</th> </tr>"
+        html = f"<html> <table>
+
+        html += f"<tr style ='border: 1px solid black; border-collapse: collapse;> <th>{Valor}</th> <th>{Peso}</th> </tr>"
         # while que concatena linhas de nota/peso na tabela
         while linha != "":
             linha = arquivoDeEntrada.readline()
@@ -172,6 +164,7 @@ def processamentoDeDados():
         arquivoDeSaida = open("saida.html", "w")
         arquivoDeSaida.write(html)
         arquivoDeEntrada.close()
+        arquivoDeSaida.close()
 
 if __name__ == "__main__":
     seletorDeOpcoes()
