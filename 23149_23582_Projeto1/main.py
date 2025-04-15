@@ -133,9 +133,9 @@ def processamentoDeDados():
         linha ="-"
 
         html = ""
-        html = f"<html> <table>
+        html = f"<html> <table>"
 
-        html += f"<tr style ='border: 1px solid black; border-collapse: collapse;> <th>{Valor}</th> <th>{Peso}</th> </tr>"
+        html += f"<tr style ='border: 1px solid black; border-collapse: collapse;'> <th>Valor</th> <th>Peso</th> </tr>"
         # while que concatena linhas de nota/peso na tabela
         while linha != "":
             linha = arquivoDeEntrada.readline()
@@ -157,10 +157,10 @@ def processamentoDeDados():
         html += f"<p>Raiz média quadratica: {soma.raiz_media_quadratica:.2f}</p>"
         html += f"<p>Média ponderada: {soma.media_ponderada:.2f}</p>" 
         html += f"<p>Média geométrica: {produt.media_geometrica():.2f}</p>"
+        html += f"<p>Média harmônica: {soma.media_harmonica_dos_inversos():.2f} </p>"
         html += f"<p>Maior valor: {produt._maior}</p>"
         html += f"<p>Menor valor: {produt._menor}</p>"
         html += "</body></html>"
-
         arquivoDeSaida = open("saida.html", "w")
         arquivoDeSaida.write(html)
         arquivoDeEntrada.close()

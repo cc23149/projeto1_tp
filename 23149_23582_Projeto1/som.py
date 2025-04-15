@@ -49,8 +49,16 @@ class Somatoria:
         
         return self._soma / self._quantos_valores_somados
     
-    def somar_inversos(self):
-        pass
+    def somar_inversos(self, valor_a_somar):
+        if valor_a_somar == 0:
+            raise Exception("Não é possível somar o inverso de zero.")
+        self._soma += 1 / valor_a_somar
+        self._quantos_valores_somados += 1
 
     def media_harmonica_dos_inversos(self):
-        pass
+        if self._quantos_valores_somados == 0:
+            raise Exception("Não é possível calcular a média harmônica com 0 valores.")
+        return self._quantos_valores_somados / self._soma
+
+
+    
