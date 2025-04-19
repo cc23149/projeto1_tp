@@ -135,7 +135,7 @@ def fazProcessamentoDeDados():
         html = ""                                   #inicializa a variável html com uma string vazia
         html = f"<html> <table>"                    #cria a tabela no html
 
-        html += f"<tr style ='border: 1px solid black; border-collapse: collapse;'> <th>Valor</th> <th>Peso</th> </tr>"       #cria o cabeçalho da tabela no html
+        html += f"<tr> <th>Valor</th> <th>Peso</th> </tr>"       #cria o cabeçalho da tabela no html
         
         while linha != "":                          #Concatena linhas de nota/peso na tabela
             linha = arquivoDeEntrada.readline()     #lê a linha do arquivo de entrada
