@@ -14,18 +14,18 @@ def seletorDeOpcoes():
         print("4 - Processamento de Dados")
         opcao = int(input("\nDigite a opção desejada: "))       #e é pedido ao usúario que digite o número correspondente a opção desejada 
         match opcao:
-            case 1:         #caso o número digitado for 1
+            case 1:        #caso o número digitado for 1
                 os.system('cls') or None        #o terminal é limpo
-                fazPrimos()     #e é chamada a função fazPrimos()
+                fazPrimos()                 #e é chamada a função fazPrimos()
             case 2:        #caso o número digitado for 2
                 os.system('cls') or None        #o terminal é limpo
-                fazRaizQuadrada()       #e é chamada a função fazRaizQuadrada
+                fazRaizQuadrada()           #e é chamada a função fazRaizQuadrada
             case 3:        #caso o número digitado for 3
                 os.system('cls') or None        #o terminal é limpo
-                fazNumerosDeFibonacci()       #e é chamada a função fazNumerosDeFibonacci()
-            case 4:        #caso o número digitado for 4
+                fazNumerosDeFibonacci()     #e é chamada a função fazNumerosDeFibonacci()
+            case 4:         #caso o número digitado for 4
                 os.system('cls') or None        #o terminal é limpo
-                fazProcessamentoDeDados()       #e é chamada a função fazProcessamentoDeDados()
+                fazProcessamentoDeDados()   #e é chamada a função fazProcessamentoDeDados()
 
         if opcao != 0:                          #se a opção escolhida não foi encerrar o programa ao final da execulção da execução do médoto 
             input("\nTecle [Enter] para retornar ao seletor de opções: ")       #é avisado para apertar ENTER para poder escolher outra funcionalidade
